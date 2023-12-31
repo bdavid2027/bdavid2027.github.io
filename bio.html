@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+	a {
+            text-transform: capitalize;
+            text-decoration: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+		body {
+            background: #4F1602;
+            margin: 0;
+        }
+	header {
+            width: 96%;
+            background: #fff;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px;
+			border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            z-index: 4;
+        }
+	.navbar {
+            max-width: 100%;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar li {
+            margin-left: 16px;
+			margin-right: 10px;
+        }
+        .navbar a {
+            color: #333;
+        }
+        .navbar ul li a {
+            font-size: 20px;
+            transition: .2s;
+			color: #642A17;
+			font-family: 'Exo 2', sans-serif;
+        }
+        .navbar ul li a:hover {
+            color: #DB6E2D;
+        }
+		header .logo {
+			display: flex;
+			align-items: center;
+		}
+		header .logo img {
+			margin-right: 10px;
+		}
+		header .logo img,
+		header .logo span {
+			vertical-align: middle;
+		}
+        header .fas-bars {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+		header .logo span {
+			font-size: 20px;
+			text-transform: uppercase;
+			font-family: 'Nova Square', sans-serif;
+			color: #642A17;
+		}
+        .menu-block {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 152, 105, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .menu-block:target {
+            display: flex;
+        }
+        .menu-block ul {
+            flex-flow: column;
+            text-align: center;
+        }
+
+        .menu-block ul li {
+            margin: 10px 0;
+        }
+
+        .menu-block a {
+            font-size: 15px;
+            color: #642A17;
+            text-decoration: none;
+            transition: .2s;
+			font-family: 'Exo 2', sans-serif;
+        }
+
+        .menu-block a:hover {
+            color: #DE413E;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+		header .fas-bars {
+			color: #642A17;
+		}
+		header .fas-bars:hover {
+			color: #DE413E;
+			transition: .2s;
+		}
+        @media (max-width: 768px) {
+            header .fas-bars {
+                display: block;
+            }
+            .navbar {
+                display: none;
+            }
+
+            .menu-block a {
+                font-size: 3rem;
+            }
+
+            .menu-block .close-btn {
+                display: block;
+            }
+
+            .menu-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-block ul li {
+                margin-left: 0;
+            }
+
+            .menu-block ul li a {
+                font-size: 20px;
+            }
+
+            header .fas-bars.active {
+                display: none;
+            }
+			.section1, .section2, .section3 {
+                height: auto;
+            }
+            .section1 .row1,
+			.section2 .row2,
+			.section3 .row3 {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section1 .con1,
+			.section2 .con2,
+			.section3 .con3,
+            .about .img {
+                flex: 1;
+                max-width: 100%;
+            }
+
+            .section1 .con1,
+			.section2 .con2,
+			.section3 .con3 {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+			}
+			.section1,
+			.section2,
+			.section3 {
+            background: #fff;
+            z-index: 3;
+            position: relative;
+			border-radius: 10px;
+			margin: 10px;
+        }
+        .tle {
+            padding: 0 10px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: 400;
+            color: #642A17;
+			font-family: 'Exo 2', sans-serif;
+        }
+		.intro {
+			background: #fff;
+            z-index: 3;
+            position: relative;
+			border-radius: 10px;
+			margin: 10px;
+			padding: 20px;
+		}
+		.h {
+		font-size: 50px;
+			text-align: center;
+			padding: 25px 0;
+			color: #8B1D0A;
+			font-family: 'Nova Square', sans-serif;
+		}
+		.desc {
+		font-size: 16px;
+            color: #642A17;
+            padding: 10px 0;
+			font-family: 'Exo 2', sans-serif;
+		}
+		.conc {
+			background: #fff;
+            z-index: 3;
+            position: relative;
+			border-radius: 10px;
+			margin: 10px;
+			padding: 20px;
+		}
+		.d {
+		font-size: 50px;
+			text-align: center;
+			padding: 25px 0;
+			color: #8B1D0A;
+			font-family: 'Nova Square', sans-serif;
+		}
+		.descr {
+		font-size: 16px;
+            color: #642A17;
+            padding: 10px 0;
+			font-family: 'Exo 2', sans-serif;
+		}
+		.hd,
+		.hd2,
+		.hd3 {
+			font-size: 50px;
+			text-align: center;
+			padding: 25px 0;
+			color: #8B1D0A;
+			font-family: 'Nova Square', sans-serif;
+		}
+        .section1 .row1,
+		.section2 .row2,
+		.section3 .row3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+			margin: 20px 0;
+        }
+        .section1 .row1 img,
+		.section2 .row2 img,
+		.section3 .row3 img {
+            max-width: 100%;
+             max-height: 700px;
+			border-radius: 3px;
+			margin-bottom: 20px;
+        }
+        .section1 .row1 .con1,
+		.section2 .row2 .con2,
+		.section3 .row3 .con3 {
+            padding: 20px;
+			flex: 1;
+			max-width: 100%;
+        }
+        .section1 .row1 .con1 h3,
+		.section2 .row2 .con2 h3,
+		.section3 .row3 .con3 h3 {
+            font-size: 30px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+        }
+        .section1 .row1 .con1 p,
+		.section2 .row2 .con2 p,
+		.section3 .row3 .con3 p {
+            font-size: 16px;
+            color: #642A17;
+            padding: 10px 0;
+			font-family: 'Exo 2', sans-serif;
+        }
+		.header {
+			min-height: 50vh;
+			width: 100%;
+			background-image: linear-gradient(rgba(100, 0, 0, 0.9), rgba(100, 0, 0, 0.9)), url(https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_22064_16436342404173431.jpg);
+			background-position: center;
+			background-size: cover;
+			position: relative;
+		}
+		.header h1 {
+			width: 90%;
+			color: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			font-size: 55px;
+			font-family: 'Exo 2', sans-serif;
+		}
+		@media (max-width: 768px) {
+            .section1 .row1 img,
+			.section2 .row2 img {
+                max-height: 500px;
+            }
+			}
+		footer {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer {
+            width: 70%;
+            padding: 70px 30px 20px;
+            margin: auto;
+        }
+        .icons {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 10px;
+		}
+        .icons a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .icons a i {
+            font-size: 20px;
+            color: #000;
+            opacity: 0.9;
+        }
+        .icons a:hover {
+            background-color: #111;
+            transition: .5s;
+        }
+        .icons a:hover i {
+            color: #fff;
+            transition: .5s;
+        }
+		.fnav {
+			margin: 20px 0;
+			text-align: center;
+		}
+		.fnav ul {
+			display: flex;
+			justify-content: center;
+			list-style-type: none;
+			padding: 0;
+		}
+		.fnav ul li {
+			margin: 0 10px;
+		}
+		.fnav ul li a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 13px;
+			opacity: .7;
+			transition: .5s;
+		}
+
+		.fnav ul li a:hover {
+			opacity: 1;
+		}
+		.fbot {
+			background: #000;
+			padding: 20px;
+			text-align: center;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0;
+			z-index: 4;
+		}
+        .fbot p {
+            color: #fff;
+            margin: 0;
+        }
+        .designer {
+            opacity: .7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+		#p {
+		margin-top:10px;
+		}
+        @media (max-width: 700px) {
+            .fnav ul {
+                flex-direction: column;
+            }
+
+            .fnav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 10px;
+            }
+		}
+</style>
+</head>
+<body>
+	<section class = "header">
+		<h1> 'Digestive System Simulation Lab'</h1>
+	</section>
+    <header>
+        <a href="#" class="logo">
+			<img src = "image/logo.png" width = "40" alt = "logo">
+			<span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+
+    <div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+	<section class="intro">
+	<h1 class = "h">'INTRODUCTION'</h1>
+    <p class = "desc"> The digestive system is one of the most important systems in the human body, responsible for breaking down food and absorbing nutrients. It is made up of many parts, which all work together to process food and keep the body healthy.
+Through our unique and fascinating exploration of the human digestive system, we have gathered observations and results that we hope will aid students in understanding the structures and functions of this system.
+</p>
+    </section>
+	<section class="section1">
+		<h1 class = "hd">'STAGES OF FOOD PROCESSING'</h1>
+        <div class="row1">
+            <div class="img1">
+                <img src="image/teamwork.jpg" alt="section1">
+            </div>
+            <div class="con1">
+                <h3>Crushing Stage</h3>
+                <p>During our experiment, we carefully documented each step of the crushing process using photos. Our observations revealed that putting bananas and crackers in a zip lock bag mimicked the way solid food is consumed in the stomach. Adding water imitated the presence of gastric fluids, which helps break down food particles. The zip locked bag acted as a representation of the stomach providing a controlled environment for simulating digestion. Crushing the food in the bag symbolizes how ingested food gets mechanically broken down like how the stomach churns. Furthermore, introducing orange juice simulated the conditions found in the stomach, aiding in further digestion. Regarding what could be present inside the bag in terms of biomolecules, our documentation suggests that there are carbohydrates from both crackers and bananas along with enzymes and acids that are essential for digestion. This simulation effectively demonstrated the stages of processing and digesting food giving us valuable insights into how nutrients are broken down physically.</p>
+            </div>
+        </div>
+		<div class="row1">
+            <div class="img1">
+                <img src="image/transfer.jpg" alt="section2">
+            </div>
+            <div class="con1">
+                <h3>Transfer Stage</h3>
+                <p>During the process of transferring liquid from the zip lock bag to the stocking using a cup, we observed how the flow of liquid from the stocking mimics the movement of partially digested food. It's like witnessing how chyme, which is partially broken down food, travels from the stomach to the intestine. The tray that holds everything represents the intestine, which is where all the essential nutrients are absorbed. Inside the stockings, we noticed some remaining solidified residue that represents components that didn't fully break down in the stomach. When this solidified content was pushed out from the stocking, it symbolizes how undigested waste is getting expelled from our small intestine into our large intestine. This separation of waste from nutrients is an essential step before elimination. This whole simulation allows us to understand and visualize every stage of digestion, starting with chemical breakdown in our stomachs and ending with nutrient absorption and waste elimination, in our small and large intestines respectively.</p>
+            </div>
+        </div>
+    </section>
+	<section class="section2">
+	<h1 class = "hd2">'SIMULATION OF ABSORPTION'</h1>
+        <div class="row2">
+            <div class="img2">
+                <img src="image/absorb.jpg" alt="section3">
+            </div>
+            <div class="con2">
+                <h3>Absorption</h3>
+                <p>The paper towel with the most amount of folds, which is 4 folds, will absorb the largest amount of water because it has the highest surface area for the water to be absorbed into. More folds in the paper towel mean more surface area for the water to spread out and be absorbed into. This is known as the principles of capillary action. The paper towel can be compared to the villi in the small intestine of the digestive system. The multiple folds in the paper towel mimic the function of the villi. They are finger-like projections on the lining of the intestine, which helps to increase the surface tension for the absorption of nutrients. The same goes for the paper towel with multiple folds as it also serves to increase the surface area, allowing for better absorption of water. 
+</p>
+            </div>
+        </div>
+    </section>
+	<section class="section3">
+	<h1 class = "hd3">'SIMULATION OF BILE ACTION'</h1>
+        <div class="row3">
+            <div class="img3">
+                <img src="image/bile.jpg" alt="section4">
+            </div>
+            <div class="con3">
+                <h3>Bile Action</h3>
+                <p>In this experiment the soap, water and oil combination shows a simple example of how bile works in the process of digestion. In this scenario, the oil represents the fat in our diet, the soap represents the bile, and the water represents the stomach acid. When mixed together, the soap and water helps emulsify the oil. Similarly, the bile and stomach acid works together to emulsify the fats in our diets, allowing them to be better digested by the body. </p>
+            </div>
+        </div>
+    </section>
+	<section class="conc">
+	<h1 class = "d">'CONCLUSION'</h1>
+    <p class = "descr">The digestive system is responsible for breaking down food and absorbing nutrients. This activity helps learners understand the processes involved in digestion and the significance of bile, acids, and other enzymes in the process. Understanding the functioning of the digestive system is important for developing healthy eating habits and preventing digestive problems. These activities help us gain a better understanding of the complex processes involved in digesting food and absorbing nutrients, and the importance of proper digestion in maintaining overall health.</p>
+    </section>
+	<footer>
+	<div class = "footer">
+		<div class = "icons">
+			<a href = " "><i class = "fa-brands fa-facebook"></i></a>
+			<a href = " "><i class="fa-solid fa-phone"></i></a>
+			<a href = " "><i class="fa-solid fa-address-card"></i></a>
+			<a href = " "><i class = "fa-brands fa-google-plus"></i></a>
+			<a href = " "><i class = "fa-solid fa-envelope"></i></a>
+		</div>
+		<div class = "fnav">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+			</ul>
+		</div>
+		<div class = "fbot">
+			<p> Copyright © 2023, Designed by <span class = "designer"> Breshiana </span>
+		</div>
+		<div id = "p">
+			<p>‎ </p>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>

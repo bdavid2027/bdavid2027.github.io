@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+        a {
+            text-transform: capitalize;
+            text-decoration: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #4F1602;
+            margin: 0;
+        }
+        header {
+            width: 96%;
+            background: #fff;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            z-index: 4;
+        }
+        .navbar {
+            max-width: 100%;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar li {
+            margin-left: 16px;
+            margin-right: 10px;
+        }
+        .navbar a {
+            color: #333;
+        }
+        .navbar ul li a {
+            font-size: 20px;
+            transition: .2s;
+            color: #642A17;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .navbar ul li a:hover {
+            color: #DB6E2D;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            margin-right: 10px;
+        }
+        header .logo img,
+        header .logo span {
+            vertical-align: middle;
+        }
+        header .fas-bars {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        header .logo span {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: 'Nova Square', sans-serif;
+            color: #642A17;
+        }
+        .menu-block {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 152, 105, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .menu-block:target {
+            display: flex;
+        }
+        .menu-block ul {
+            flex-flow: column;
+            text-align: center;
+        }
+        .menu-block ul li {
+            margin: 10px 0;
+        }
+        .menu-block a {
+            font-size: 15px;
+            color: #642A17;
+            text-decoration: none;
+            transition: .2s;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .menu-block a:hover {
+            color: #DE413E;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        header .fas-bars {
+            color: #642A17;
+        }
+        header .fas-bars:hover {
+            color: #DE413E;
+            transition: .2s;
+        }
+        @media (max-width: 768px) {
+            header .fas-bars {
+                display: block;
+            }
+            .navbar {
+                display: none;
+            }
+            .menu-block a {
+                font-size: 3rem;
+            }
+            .menu-block .close-btn {
+                display: block;
+            }
+            .menu-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-block ul li {
+                margin-left: 0;
+            }
+            .menu-block ul li a {
+                font-size: 20px;
+            }
+            header .fas-bars.active {
+                display: none;
+            }
+        }
+        .header {
+            min-height: 50vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(100, 0, 0, 0.7), rgba(100, 0, 0, 0.7)),
+                url(https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .header h2 {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 55px;
+            font-family: 'Exo 2', sans-serif;
+		}
+        footer {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer {
+            width: 70%;
+            padding: 70px 30px 20px;
+            margin: auto;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .icons a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .icons a i {
+            font-size: 20px;
+            color: #000;
+            opacity: 0.9;
+        }
+        .icons a:hover {
+            background-color: #111;
+            transition: .5s;
+        }
+        .icons a:hover i {
+            color: #fff;
+            transition: .5s;
+        }
+        .fnav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .fnav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .fnav ul li {
+            margin: 0 10px;
+        }
+        .fnav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: .7;
+            transition: .5s;
+        }
+        .fnav ul li a:hover {
+            opacity: 1;
+        }
+        .fbot {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 4;
+        }
+        .fbot p {
+            color: #fff;
+            margin: 0;
+        }
+        .designer {
+            opacity: .7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+        #p {
+            margin-top: 10px;
+        }
+        @media (max-width: 700px) {
+            .fnav ul {
+                flex-direction: column;
+            }
+
+            .fnav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 10px;
+            }
+        }
+		.intro {
+			background: #fff;
+            z-index: 3;
+            position: relative;
+			border-radius: 10px;
+			padding: 20px;
+			width: 60%;
+			margin: 0 auto;
+		}
+		@media (max-width: 768px) {
+		.intro {
+			width: 90%;
+    }
+}
+		.h {
+			text-align: center;
+			font-size: 46px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+			margin: 10px;
+		}
+		.desc {
+		font-size: 20px;
+            color: #642A17;
+            padding: 10px 0;
+			font-family: 'Exo 2', sans-serif;
+		}
+		.cont1 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+			background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(211, 82, 33, 0.9)), url("https://images.squarespace-cdn.com/content/v1/5f251c861a3dc74c86c18048/1625537875041-87ZZSVD08M4AGACJ19H8/Life%27s+a+Journey+1.jpg?format=1000w") no-repeat center center fixed;
+			background-size: cover;
+			background-position: center;
+        }
+		.cont2 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+			background: linear-gradient(rgba(211, 82, 33, 0.9), rgba(0, 0, 0, 0.6)), url("https://images.squarespace-cdn.com/content/v1/5f251c861a3dc74c86c18048/1625537875041-87ZZSVD08M4AGACJ19H8/Life%27s+a+Journey+1.jpg?format=1000w") no-repeat center center fixed;
+			background-size: cover;
+			background-position: center;
+        }
+		.cont3 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+			background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(211, 82, 33, 0.9)), url("https://images.squarespace-cdn.com/content/v1/5f251c861a3dc74c86c18048/1625537875041-87ZZSVD08M4AGACJ19H8/Life%27s+a+Journey+1.jpg?format=1000w") no-repeat center center fixed;
+			background-size: cover;
+			background-position: center;
+        }
+		.cont1 .box1,
+		.cont2 .box2,
+		.cont3 .box3 {
+			height: 700px;
+			width: 450px;
+			background: #fff;
+			text-align: center;
+			border-radius: 10px;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+			margin: 80px;
+			cursor: pointer;
+			z-index: 1;
+		}
+		@media (max-width: 768px) {
+			.cont1 .box1,
+			.cont2 .box2,
+			.cont3 .box3 {
+				width: 100%;
+				margin: 20px 0;
+		}
+		}
+		.cont1 .box1 h3,
+		.cont2 .box2 h3,
+		.cont3 .box3 h3 {
+            font-size: 35px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+			margin: 10px;
+        }
+		.cont1 .box1 h4,
+		.cont2 .box2 h4,
+		.cont3 .box3 h4 {
+            font-size: 20px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			margin: 10px;
+        }
+		.cont1 .box1 p,
+		.cont2 .box2 p,
+		.cont3 .box3 p {
+            font-size: 16px;
+            padding: 7px 20px;
+            color: #666;
+			font-family: 'Exo 2', sans-serif;
+        }
+		.em {
+			font-size: 50px;
+			text-align: center;
+			color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+			margin-top: 100px;
+		}
+		.header h2 {
+			font-size: 80px;
+			color: #fff;
+			font-family: 'Nova Square', sans-serif;
+			border: solid 1px white;
+			text-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+			text-transform: uppercase;
+			text-align: center;
+	 }
+	 .header {
+			margin-bottom: 100px;
+	  }
+	  .made{
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			background-color: white;
+			font-family: 'Nova Square', sans-serif;
+			color: #8B1D0A;
+}
+    </style>
+</head>
+<body>
+    <section class="header">
+	<h2> ENGLISH 3</h2>
+    </section>
+    <header>
+        <a href="#" class="logo">
+            <img src="image/logo.png" width="40" alt="logo">
+            <span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+
+    <div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+	<section class="intro">
+	<h2 class = "h">Welcome Future and Current Scholars!</h2>
+    <p class = "desc"> We're thrilled to have you checking this page out as this page contains
+WORLD CLASS SONNETS from past students.
+The poems are about life and our experiences of growing up and navigating through its challenges.
+Each poem serves as a glimpse into various aspects of our personal journeys and highlights the emotions, struggles, and experiences that we have encountered along the way.
+Through our poems, we hope to convey our understanding of life and its hurdles, as well as the valuable lessons and takeaways that we have learned from them.
+Here are 6 Sonnets from 3 different students.
+These Sonnets are both Petrarchan and Shakesperean!</p>
+    </section>
+	<h1 class = "em">' THEME: Life's Journey '</h1>
+	<div class="cont1">
+            <div class="box1">
+                <h3>My Life: Growing Up</h3>
+				<h4> Getting Older by Billie Eilish<br> Sonnet by Sean Naval</h4>
+                <p> What’s the purpose of embracing my youth?<br>
+If we all just depart from this world<br>
+The burden on me is unfurled<br>
+I’m getting older, now I shall embrace the sooth<br>
+<br>
+This intricate labyrinth of a land bestow<br>
+While the ray of the sun climbs<br>
+The darkness, all alone, resigns<br>
+Each second of this life shouldn’t end with a sorrow<br>
+<br>
+I'm becoming more adept at owning up to my mistakes<br>
+Oh, let us follow the sounds that are to be found<br>
+Yet there are challenges that can make me break<br>
+<br>
+Ink starts to write, A story makes<br>
+I’m happier than ever, my goal sounds<br>
+The end of a beginning, now a new one awakes<br>
+</p>
+</div>
+            <div class="box1">
+                <h3>HER.</h3>
+				<h4>my future by Billie Eilish<br> Sonnet by Sean Naval</h4>
+                <p>Upon this land, Im in love<br>
+But not to anyone, its with her, my future<br> 
+It might be as beautiful as a dove<br>
+But it also might be as ugly as a sewer<br>
+<br>
+Though the challenges upon this empire<br>
+I can’t wait to meet her<br>
+She could be bold and the umpire<br>
+She might also be a bit of a blur<br>
+<br>
+Thou shalt hear a melody<br>
+A melody that makes her dance<br>
+Each move, each dance, a memory<br>
+Appears like a trance<br>
+<br>
+Once more, I'm in love with what lies from this day forward<br>
+I just want to know if she will become the standard<br>  </p>
+</div>
+	</div>
+	<div class="cont2">
+            <div class="box2">
+                <h3>Path Unfolded</h3>
+				<h4> Top of my School by Katherine Lynn-Rose<br>Sonnet by Brenice David</h4>
+                <p>In life, some people drift, accepting what’s bestowed<br>
+While others strive to make their own dreams touch the sky.<br>
+Their unyielding hearts, aspirations soaring high, <br>
+Yet others hesitate, on paths they’ve never strolled.<br>
+<br>
+To go all out, every task I must unload<br>
+Outdoing all the rest, where no doubts arise high<br>
+Me? Settling for second best? I must testify<br>
+I won’t stop and lose my cool, for the dreams I owed. <br>
+<br>
+And who will cherish me if not the chosen spark?<br>
+Even if not the top, I’m still nobody’s fool<br>
+And all these years, I’ve been labeled as overzealous<br>
+Struggling way too much, making everything dark.<br>
+But as I shine like a star with passion as my tool, <br>
+Let people see, in their hearts, a hint of jealous.<br>
+ </p>
+</div>
+            <div class="box2">
+                <h3>A Journey Through Shadows and Lights</h3>
+				<h4>Fix You by Coldplay <br>Sonnet by Brenice David</h4>
+                <p>Giving your utmost best but not rewarded,<br>
+Fulfilled desires, while needs are to no success<br>
+Exhausted, yet sleep’s recognition thwarted<br>
+Tears cascading, with pain that cease to express.<br>
+<br>
+Things once embraced, now unable to replace<br>
+A bitter fate, with love fading out of view<br>
+Everything is worsening, with no escape<br>
+In the dark shadows deep, where memories flew.<br>
+<br>
+In the midst of chaos, hope’s light finds your path<br>
+Guiding through darkness, evoking your breakthrough<br>
+And one caresses the wounded aftermath<br>
+which afterwards, whispers, very gentle and truev
+<br>
+It murmured, if you don’t try, you’ll never know,<br>
+Discover your worth, let your spirits grow.<br>
+ </p>
+</div>
+</div>
+<div class="cont3">
+            <div class="box3">
+                <h3>FINDING YOUR VOICE</h3>
+				<h4> LETTER TO MY 13 YEAR OLD SELF by LAUFEY<br> Sonnet by Yesha Esguerra</h4>
+                <p>I know you stand alone, so different from <br>the crowd<br>
+Your eyes filled with fear, your heart, so <br>unsure<br>
+But, baby, just know you'll grow up and<br> grow so tough<br>
+And charm those in your sight<br>
+For you are a bright light <br>Don't be afraid to show it <br>Love and be loved<br>
+Is all that you need<br>
+And no one else's voice<br>
+Can ever drown yours out </p>
+</div>
+            <div class="box3">
+                <h3>SEEKING SALVATION</h3>
+				<h4>YOU'RE ON YOUR OWN KID by Taylor Swift <br>Sonnet by Yesha Esguerra</h4>
+                <p>
+She believed in her beauty and her worth<br> But all around her, she saw others and their<br> strength<br>
+And her heart would ache, for she felt so<br> frail<br>
+And though her light never faded, it dimmed<br> sometimes<br>
+Amid all the noise and chaos in life<br>
+Like in a storm, her spirit would take flight<br> But through it all, she kept on trying<br>
+To find her place in the world and to make it<br> her own<br>
+And finally, she found what she was seeking<br> Love and appreciation that never left her<br> alone </p>
+</div>
+</div>
+<h1 class="made">Sonnets made by <br>SEAN NAVAL,<br> BRENICE DAVID, <br>AND YESHA ESGUERRA</h1>
+    <footer>
+        <div class="footer">
+		<div class = "icons">
+			<a href = " "><i class = "fa-brands fa-facebook"></i></a>
+			<a href = " "><i class="fa-solid fa-phone"></i></a>
+			<a href = " "><i class="fa-solid fa-address-card"></i></a>
+			<a href = " "><i class = "fa-brands fa-google-plus"></i></a>
+			<a href = " "><i class = "fa-solid fa-envelope"></i></a>
+		</div>
+		<div class = "fnav">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+			</ul>
+		</div>
+		<div class = "fbot">
+			<p> Copyright © 2023, Designed by <span class = "designer"> Breshiana </span>
+		</div>
+		<div id = "p">
+			<p>‎ </p>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+        .subjects,
+        .curriculum {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        a {
+            text-transform: capitalize;
+            text-decoration: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #370D0A;
+            margin: 0;
+        }
+        header {
+            width: 96%;
+            background: #fff;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            z-index: 4;
+        }
+        .navbar {
+            max-width: 100%;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar li {
+            margin-left: 16px;
+            margin-right: 10px;
+        }
+        .navbar a {
+            color: #333;
+        }
+        .navbar ul li a {
+            font-size: 20px;
+            transition: .2s;
+            color: #642A17;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .navbar ul li a:hover {
+            color: #DB6E2D;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            margin-right: 10px;
+        }
+        header .logo img,
+        header .logo span {
+            vertical-align: middle;
+        }
+        header .fas-bars {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        header .logo span {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: 'Nova Square', sans-serif;
+            color: #642A17;
+        }
+        .menu-block {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 152, 105, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .menu-block:target {
+            display: flex;
+        }
+        .menu-block ul {
+            flex-flow: column;
+            text-align: center;
+        }
+        .menu-block ul li {
+            margin: 10px 0;
+        }
+        .menu-block a {
+            font-size: 15px;
+            color: #642A17;
+            text-decoration: none;
+            transition: .2s;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .menu-block a:hover {
+            color: #DE413E;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        header .fas-bars {
+            color: #642A17;
+        }
+        header .fas-bars:hover {
+            color: #DE413E;
+            transition: .2s;
+        }
+        @media (max-width: 768px) {
+            header .fas-bars {
+                display: block;
+            }
+            .navbar {
+                display: none;
+            }
+            .menu-block a {
+                font-size: 3rem;
+            }
+            .menu-block .close-btn {
+                display: block;
+            }
+            .menu-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-block ul li {
+                margin-left: 0;
+            }
+            .menu-block ul li a {
+                font-size: 20px;
+            }
+            header .fas-bars.active {
+                display: none;
+            }
+        }
+        .header {
+            min-height: 50vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(100, 0, 0, 0.7), rgba(100, 0, 0, 0.7)),
+                url(https://t3.ftcdn.net/jpg/05/96/59/18/360_F_596591823_3BYze4Efc1HixPsuio20BizY1AsT0nOJ.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .header h1 {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 55px;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .main {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+		.main h2{
+			font-size: 50px;
+			font-family: 'Nova Square', sans-serif;
+			color: #A62A08;
+		}
+		.main h3{
+			font-size: 30px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+		}
+		.main ul li{
+			font-size: 30px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+		}
+		.main p{
+			font-size: 20px;
+			font-family: 'Nova Square', sans-serif;
+			color: #A62A08;
+		}
+        .sidebar.subjects {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .content.curriculum {
+            flex: 2;
+        }
+        .subpage {
+            margin-top: 30px;
+        }
+        .btn {
+			height: 40px;
+            width: 200px;
+            border-radius: 50px;
+            background: #B42910;
+            color: #fff;
+            font-size: 20px;
+			font-family: 'Saira Semi Condensed', sans-serif;
+            cursor: pointer;
+            transition: .2s;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+			padding: 10px 20px;
+		}
+		.btn a {
+			color: #fff;
+		}
+        .btn:hover {
+            letter-spacing: 2px;
+        }
+        @media screen and (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+            .sidebar,
+            .content {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+		@media (max-width: 768px) {
+			.subjects,
+			.curriculum {
+			width: calc(100% - 40px);
+			margin-left: auto;
+			margin-right: auto;
+    }
+    .main {
+        flex-direction: column;
+    }
+
+    .sidebar.subjects {
+        margin-right: 0;
+    }
+		}	
+		#biology {
+			background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(211, 82, 33, 0.9)), url("https://www.universitylabpartners.org/hubfs/2021-03-20%20Intro%20to%20Biotech%20%233.jpeg") no-repeat center center fixed;
+			background-size: cover;
+			background-position: center;
+			padding: 40px;
+			border-radius: 10px;
+			color: #fff;
+		}
+		#biology img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		#english {
+			background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(211, 82, 33, 0.9)), url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop") no-repeat center center fixed;
+			background-size: cover;
+			background-position: center;
+			padding: 40px;
+			border-radius: 10px;
+			color: #fff;
+		}
+		#english img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+        footer {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer {
+            width: 70%;
+            padding: 70px 30px 20px;
+            margin: auto;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .icons a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .icons a i {
+            font-size: 20px;
+            color: #000;
+            opacity: 0.9;
+        }
+        .icons a:hover {
+            background-color: #111;
+            transition: .5s;
+        }
+        .icons a:hover i {
+            color: #fff;
+            transition: .5s;
+        }
+        .fnav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .fnav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .fnav ul li {
+            margin: 0 10px;
+        }
+        .fnav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: .7;
+            transition: .5s;
+        }
+        .fnav ul li a:hover {
+            opacity: 1;
+        }
+        .fbot {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 4;
+        }
+        .fbot p {
+            color: #fff;
+            margin: 0;
+        }
+        .designer {
+            opacity: .7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+        #p {
+            margin-top: 10px;
+        }
+        @media (max-width: 700px) {
+            .fnav ul {
+                flex-direction: column;
+            }
+
+            .fnav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 10px;
+            }
+        }
+        .subjects,
+        .curriculum {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+		.subpage h2 {
+			font-size: 30px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+		}
+		.subpage p {
+			font-size: 16px;
+            font-family: 'Saira Semi Condensed', sans-serif;
+		}
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <h1>'Academics'</h1>
+    </section>
+    <header>
+        <a href="#" class="logo">
+            <img src="image/logo.png" width="40" alt="logo">
+            <span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+
+    <div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div class="sidebar subjects">
+                <h2>'Subjects'</h2>
+                <ul>
+                    <li>Mathematics</li>
+                    <li>Science</li>
+                    <li>History</li>
+                    <li>English</li>
+                    <li>Filipino</li>
+                </ul>
+            </div>
+            <div class="content curriculum">
+                <h2>'Curriculum Overview'</h2>
+                <p>The school offers a diverse curriculum to provide a well-rounded education for students. Here's a brief overview of the key subjects:</p>
+                <h3>Mathematics</h3>
+                <p>The primary objectives of the math curriculum are to ensure a grasp of mathematical concepts and foster the growth of effective problem solving skills. The curriculum encompasses areas such as algebra, geometry, calculus and statistics.</p>
+
+                <h3>Science</h3>
+                <p>The science curriculum covers a range of scientific disciplines such as physics, chemistry and biology. Students actively participate in hands on experiments and interactive activities to cultivate a passion, for exploration.</p>
+
+                <h3>History</h3>
+                <p>History classes cover a range of historical eras and events focusing on analyzing historical sources and developing critical thinking skills. Students gain an understanding of global cultural and political developments.</p>
+
+                <h3>English</h3>
+                <p>The primary objective of the curriculum is to enhance language skills in reading, writing and oral communication. When students engage with literature, they have the opportunity to explore timeless well as contemporary works fostering a passion, for language and self expression.</p>
+
+                <h3>Filipino</h3>
+                <p> Filipino classes have a curriculum that focuses on enhancing students language skills in reading, writing, speaking and listening. The lessons aim to develop an understanding and appreciation of the Filipino language through activities such, as analyzing literature exploring culture and practicing practical communication.</p>
+
+                <h2>Assessment and Feedback</h2>
+                <p>In our opinion, continuous evaluation is the effective method to track the progress of students. Assessments come in forms such as exams, projects, active participation in class and regular quizzes. This comprehensive approach enables us to accurately identify each students strengths and areas for improvement.</p>
+                <p>After assessments, students receive feedback that emphasizes suggestions for enhancement and constructive criticism. We encourage communication among teachers, students and parents/guardians to foster a supportive educational environment.</p>
+            </div>
+        </div>
+        <div class="subpage" id="biology">
+            <h2>Biology 1</h2>
+            <p>The digestive system is truly remarkable with its processes that coordinate the breakdown of food and absorption of essential nutrients. This is particularly fascinating in the field of biology. This intricate system, consisting of the stomach, small intestine and liver collaborates harmoniously to convert food into energy and vital components. Students who delve into this subject explore the captivating interaction between anatomy and physiology from the movements in the stomach to enzymatic processes facilitated by organs, like the pancreas. Through hands on activities, studies and dissections, students gain an understanding of the topic. It showcases how different aspects of digestion come together seamlessly.</p>
+            <a href="bio.html" class="btn">Digestive System Simulation Lab</a>
+        </div>
+        <div class="subpage" id="english">
+            <h2>English 3</h2>
+            <p>In Breshiana School, English classes students explore poetic forms, including Shakespearean and Petrarchan sonnets. They delve into the characteristics of Petrarchan sonnets, which typically present a problem in the octave and offer a resolution in the sestet. These sonnets often revolve around themes of love. On the hand, Shakespearean sonnets provide a platform for expressing a wide range of emotions from love to contemplation of life's complexities. This is made possible by their structure of three quatrains followed by a rhymed couplet. Through analysis and creative exercises students gain an understanding of the intricate artistic qualities inherent in these longstanding English poetry traditions as well, as appreciate their structural intricacies.</p>
+            <a href="English.html" class="btn">View Sonnets</a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+		<div class = "icons">
+			<a href = " "><i class = "fa-brands fa-facebook"></i></a>
+			<a href = " "><i class="fa-solid fa-phone"></i></a>
+			<a href = " "><i class="fa-solid fa-address-card"></i></a>
+			<a href = " "><i class = "fa-brands fa-google-plus"></i></a>
+			<a href = " "><i class = "fa-solid fa-envelope"></i></a>
+		</div>
+		<div class = "fnav">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+			</ul>
+		</div>
+		<div class = "fbot">
+			<p> Copyright © 2023, Designed by <span class = "designer"> Breshiana </span>
+		</div>
+		<div id = "p">
+			<p>‎ </p>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>

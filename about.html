@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+        a {
+            text-transform: capitalize;
+            text-decoration: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff; /* Set background to white */
+            margin: 0;
+        }
+
+        header {
+            width: 96%;
+            background: #fff;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            z-index: 4;
+        }
+
+        .navbar {
+            max-width: 100%;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin-left: 16px;
+            margin-right: 10px;
+        }
+
+        .navbar a {
+            color: #333;
+        }
+
+        .navbar ul li a {
+            font-size: 20px;
+            transition: .2s;
+            color: #642A17;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .navbar ul li a:hover {
+            color: #DB6E2D;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            margin-right: 10px;
+        }
+
+        header .logo img,
+        header .logo span {
+            vertical-align: middle;
+        }
+
+        header .fas-bars {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+
+        header .logo span {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: 'Nova Square', sans-serif;
+            color: #642A17;
+        }
+
+        .menu-block {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 152, 105, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .menu-block:target {
+            display: flex;
+        }
+
+        .menu-block ul {
+            flex-flow: column;
+            text-align: center;
+        }
+
+        .menu-block ul li {
+            margin: 10px 0;
+        }
+
+        .menu-block a {
+            font-size: 15px;
+            color: #642A17;
+            text-decoration: none;
+            transition: .2s;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .menu-block a:hover {
+            color: #DE413E;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        header .fas-bars {
+            color: #642A17;
+        }
+
+        header .fas-bars:hover {
+            color: #DE413E;
+            transition: .2s;
+        }
+
+        @media (max-width: 768px) {
+            header .fas-bars {
+                display: block;
+            }
+
+            .navbar {
+                display: none;
+            }
+
+            .menu-block a {
+                font-size: 3rem;
+            }
+
+            .menu-block .close-btn {
+                display: block;
+            }
+
+            .menu-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .menu-block ul li {
+                margin-left: 0;
+            }
+
+            .menu-block ul li a {
+                font-size: 20px;
+            }
+
+            header .fas-bars.active {
+                display: none;
+            }
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+            padding: 0;
+            background-color: #fff; 
+            padding: 2rem 0;
+            align-items: center;
+        }
+
+        .aimg img {
+            border-radius: 5px;
+            width: 100%;
+			
+        }
+
+        .atext h2 {
+            font-size: 50px;
+			font-family: 'Nova Square', sans-serif;
+			color: #E17A23;
+			background: #8B1D0A;
+        }
+		.atext h4 {
+            font-size: 30px;
+			font-family: 'Nova Square', sans-serif;
+			color: #E17A23;
+			background: #8B1D0A;
+        }
+        .atext p {
+            font-size: 20px;
+            margin: 5px 0 11px;
+            font-family: 'Saira Semi Condensed', sans-serif;
+        }
+        .header {
+            min-height: 50vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(100, 0, 0, 0.7), rgba(100, 0, 0, 0.7)),
+                url(https://t3.ftcdn.net/jpg/05/96/59/18/360_F_596591823_3BYze4Efc1HixPsuio20BizY1AsT0nOJ.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .header h1 {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 55px;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .section1,
+        .section2 {
+            width: 100%;
+            background-color: #fff; /* Set background to white */
+            padding: 2rem 0;
+        }
+
+        .stitle {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: 'Nova Square', sans-serif;
+			color: #fff;
+        }
+		.stitle2 {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: 'Nova Square', sans-serif;
+			color: #000;
+		}
+		.section1 {
+			background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(211, 82, 33, 0.9)), url("https://www.universitylabpartners.org/hubfs/2021-03-20%20Intro%20to%20Biotech%20%233.jpeg") no-repeat center center fixed;
+			background-size: cover;
+			background-position: center;
+	}
+        .adcon,
+        .teacon {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .admin,
+        .teacher {
+            flex: 0 0 calc(33.3333% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .admin img,
+        .teacher img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .admin h3,
+        .teacher h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            
+        }
+
+        .admin p,
+        .teacher p {
+            font-size: 16px;
+            margin: 0;
+            font-family: 'Saira Semi Condensed', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .admin,
+            .teacher {
+                flex: 0 0 100%;
+            }
+        }
+
+        footer {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer {
+            width: 70%;
+            padding: 70px 30px 20px;
+            margin: auto;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .icons a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .icons a i {
+            font-size: 20px;
+            color: #000;
+            opacity: 0.9;
+        }
+
+        .icons a:hover {
+            background-color: #111;
+            transition: .5s;
+        }
+
+        .icons a:hover i {
+            color: #fff;
+            transition: .5s;
+        }
+
+        .fnav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .fnav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .fnav ul li {
+            margin: 0 10px;
+        }
+
+        .fnav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: .7;
+            transition: .5s;
+        }
+
+        .fnav ul li a:hover {
+            opacity: 1;
+        }
+
+        .fbot {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 4;
+        }
+
+        .fbot p {
+            color: #fff;
+            margin: 0;
+        }
+
+        .designer {
+            opacity: .7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+
+        #p {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 700px) {
+            .fnav ul {
+                flex-direction: column;
+            }
+
+            .fnav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 10px;
+            }
+        }
+		.teacher h3{
+			font-size: 30px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+		}
+		.admin h3{
+		font-size: 30px;
+            color: #E17A23;
+			font-family: 'Nova Square', sans-serif;
+			background: #8B1D0A;
+			}
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <h1> 'About Us'</h1>
+    </section>
+    <header>
+        <a href="#" class="logo">
+            <img src="image/logo.png" width="40" alt="logo">
+            <span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+
+    <div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+
+    <section class="about" id="about">
+        <div class="aimg">
+            <img src="image/ab2.jpg" alt="about">
+			<img src="image/ab1.jpg" alt="about2">
+        </div>
+        <div class="atext">
+            <h2> Our History </h2>
+            <p> Welcome to the University of Breshiana, a place where dreams soar high and success knows no limits! Our university carries a rich legacy of excellence and innovation. Let me provide you with a glimpse into the captivating history of Breshiana: </p>
+			<h4> The Founding Era (1800s - 1900s) </h4>
+			<p>Back in 1885, Breshiana University was established by the wonderful educator, Professor Imaginus Breshus. Legend has it that Professor Breshus was inspired by a dream where a wise squirrel guided him to create an institute of learning that would transform education. The university immediately gained popularity due to its teaching methods and unwavering dedication to fostering student happiness.</p>
+			<h4> Delutional Course (1900s): </h4>
+			<p>The Delusional Course was designed to foster thinking. It encouraged students to explore ideas beyond the limits of reality inviting them to delve into fantastical concepts and imaginary scenarios. Graduates of this course were praised for their ability to think outside the box and infuse a touch of magic into any situation.</p>
+			<h4>Modern Era (2000s - present):</h4>
+			<p> Breshiana University has adapted its course offerings to meet the evolving needs of its students. With cutting edge research facilities, the university has established itself as a hub for innovation.</p>
+			<p>Breshiana University stands as a shining example of excellence where students are empowered to pursue their passions break down social barriers and develop into well rounded individuals prepared to conquer the world. In Academia Primes realm this esteemed institution continues to be renowned for its history, unique courses and unwavering commitment, to student satisfaction.</p>
+			
+        </div>
+    </section>
+
+    <section class="section1">
+        <div class="stitle">'Administrators'</div>
+        <div class="adcon">
+            <div class="admin">
+                <img src="image/admin1.jpg" alt="Admin 1">
+                <h3>Bresh Cruz</h3>
+                <p>Position: Principal</p>
+            </div>
+            <div class="admin">
+                <img src="image/admin2.jpg" alt="Admin 2">
+                <h3>Ina Smith</h3>
+                <p>Position: Assistant Principal</p>
+            </div>
+            <div class="admin">
+                <img src="image/admin3.jpg" alt="Admin 3">
+                <h3>Ana Montana</h3>
+                <p>Position: Superintendent</p>
+</div>
+</div>
+</section>
+<section class="section2">
+    <div class="stitle2">'Teachers'</div>
+    <div class="teacon">
+        <div class="teacher">
+            <img src="image/teacher1.jpg" alt="Teacher 1">
+            <h3>Jill Pedrera</h3>
+            <p>Subject: General Mathematics</p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher2.jpg" alt="Teacher 2">
+            <h3>Sofia Nicolas</h3>
+            <p>Subject: Calculus</p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher3.jpg" alt="Teacher 3">
+            <h3>Robert Dungo </h3>
+            <p>Subject: Statistics</p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher4.jpg" alt="Teacher 4">
+            <h3>Steve Gonzales</h3>
+            <p>Subject: Biology </p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher5.jpg" alt="Teacher 5">
+            <h3>Yuri Pineda</h3>
+            <p>Subject: Chemistry </p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher6.jpg" alt="Teacher 6">
+            <h3>Nea Sebastian</h3>
+            <p>Subject: Physics </p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher7.jpg" alt="Teacher 7">
+            <h3>Brent Hali</h3>
+            <p>Subject: History</p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher8.jpg" alt="Teacher 8">
+            <h3>Cath Mendoza</h3>
+            <p>Subject: English </p>
+        </div>
+        <div class="teacher">
+            <img src="image/teacher9.jpg" alt="Teacher 9">
+            <h3>Derrick Lopez</h3>
+            <p>Subject: Filipino </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer">
+        <div class="icons">
+            <a href=" "><i class="fa-brands fa-facebook"></i></a>
+            <a href=" "><i class="fa-solid fa-phone"></i></a>
+            <a href=" "><i class="fa-solid fa-address-card"></i></a>
+            <a href=" "><i class="fa-brands fa-google-plus"></i></a>
+            <a href=" "><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <div class="fnav">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </div>
+        <div class="fbot">
+            <p> Copyright © 2023, Designed by <span class="designer"> Breshiana </span>
+        </div>
+        <div id="p">
+            <p>‎ </p>
+        </div>
+    </div>
+</footer>
+

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+        a {
+            text-transform: capitalize;
+            text-decoration: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #4F1602;
+            margin: 0;
+        }
+        header {
+            width: 96%;
+            background: #fff;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            z-index: 4;
+        }
+        .navbar {
+            max-width: 100%;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar li {
+            margin-left: 16px;
+            margin-right: 10px;
+        }
+        .navbar a {
+            color: #333;
+        }
+        .navbar ul li a {
+            font-size: 20px;
+            transition: .2s;
+            color: #642A17;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .navbar ul li a:hover {
+            color: #DB6E2D;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            margin-right: 10px;
+        }
+        header .logo img,
+        header .logo span {
+            vertical-align: middle;
+        }
+        header .fas-bars {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        header .logo span {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: 'Nova Square', sans-serif;
+            color: #642A17;
+        }
+        .menu-block {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 152, 105, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .menu-block:target {
+            display: flex;
+        }
+        .menu-block ul {
+            flex-flow: column;
+            text-align: center;
+        }
+        .menu-block ul li {
+            margin: 10px 0;
+        }
+        .menu-block a {
+            font-size: 15px;
+            color: #642A17;
+            text-decoration: none;
+            transition: .2s;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .menu-block a:hover {
+            color: #DE413E;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        header .fas-bars {
+            color: #642A17;
+        }
+        header .fas-bars:hover {
+            color: #DE413E;
+            transition: .2s;
+        }
+        @media (max-width: 768px) {
+            header .fas-bars {
+                display: block;
+            }
+            .navbar {
+                display: none;
+            }
+            .menu-block a {
+                font-size: 3rem;
+            }
+            .menu-block .close-btn {
+                display: block;
+            }
+            .menu-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-block ul li {
+                margin-left: 0;
+            }
+            .menu-block ul li a {
+                font-size: 20px;
+            }
+            header .fas-bars.active {
+                display: none;
+            }
+        }
+        .header {
+            min-height: 50vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(100, 0, 0, 0.7), rgba(100, 0, 0, 0.7)),
+                url(https://t3.ftcdn.net/jpg/05/96/59/18/360_F_596591823_3BYze4Efc1HixPsuio20BizY1AsT0nOJ.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .header h1 {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 55px;
+            font-family: 'Exo 2', sans-serif;
+		}
+        footer {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer {
+            width: 70%;
+            padding: 70px 30px 20px;
+            margin: auto;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .icons a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .icons a i {
+            font-size: 20px;
+            color: #000;
+            opacity: 0.9;
+        }
+        .icons a:hover {
+            background-color: #111;
+            transition: .5s;
+        }
+        .icons a:hover i {
+            color: #fff;
+            transition: .5s;
+        }
+        .fnav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .fnav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .fnav ul li {
+            margin: 0 10px;
+        }
+        .fnav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: .7;
+            transition: .5s;
+        }
+        .fnav ul li a:hover {
+            opacity: 1;
+        }
+        .fbot {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 4;
+        }
+        .fbot p {
+            color: #fff;
+            margin: 0;
+        }
+        .designer {
+            opacity: .7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+        #p {
+            margin-top: 10px;
+        }
+        @media (max-width: 700px) {
+            .fnav ul {
+                flex-direction: column;
+            }
+
+            .fnav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 10px;
+            }
+        }
+		.intro {
+			background: #fff;
+            z-index: 3;
+            position: relative;
+			border-radius: 10px;
+			padding: 20px;
+		}
+		.h {
+			text-align: center;
+			font-size: 39px;
+			color: #8B1D0A;
+			font-family: 'Nova Square', sans-serif;
+		}
+		.desc {
+		font-size: 16px;
+            color: #642A17;
+            padding: 10px 0;
+			font-family: 'Exo 2', sans-serif;
+		}
+		.club {
+			background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(190, 90, 50, 0.7)), url("https://a.storyblok.com/f/178900/620x452/2207524a4e/06585a2c70566c14d23ebcb3f10d23041472247464_full.jpg/m/620x452") no-repeat center center fixed;
+			background-size: cover;
+		}
+		.club .heading {
+            font-size: 50px;
+            color: #A62A08;
+            text-align: center;
+            padding: 0 10px;
+            padding-top: 60px;
+            letter-spacing: 2px;
+            font-weight: 500;
+			font-family: 'Nova Square', sans-serif;
+			background: #fff;
+		}
+		.title {
+            font-size: 20px;
+            color: #fff;
+			font-family: 'Saira Semi Condensed', sans-serif;
+            text-align: center;
+            padding: 0 10px;
+            padding-top: 60px;
+            letter-spacing: 2px;
+            font-weight: 500;
+		}
+		.club .ctr {
+			width: 85%;
+			display: flex;
+			justify-content: center;
+			margin: 0 auto;
+			padding-top: 40px;
+			flex-wrap: wrap;
+		}
+		.club .ctr .box1,
+		.club .ctr .box2,
+		.club .ctr .box3,
+		.club .ctr .box4,
+		.club .ctr .box5,
+		.club .ctr .box6,
+		.club .ctr .box7, 
+		.club .ctr .box8, 
+		.club .ctr .box9 {
+			height: 150px;
+			width: 250px;
+			margin: 35px 20px;
+			text-align: center;
+			border-radius: 10px;
+			box-shadow: 3px 3px 0 1px #E08804, 5px 5px 5px rgba(0, 0, 0, .3);
+			background: #fff;
+		}
+		.club .ctr .box1 img,
+		.club .ctr .box2 img,
+		.club .ctr .box3 img,
+		.club .ctr .box4 img,
+		.club .ctr .box5 img,
+		.club .ctr .box6 img,
+		.club .ctr .box7 img,
+		.club .ctr .box8 img,
+		.club .ctr .box9 img {
+			height: 100px;
+			width: 100px;
+			border-radius: 50%;
+			margin-top: -40px;
+			box-shadow: 3px 3px 0 1px #E08804, 5px 5px 5px rgba(0, 0, 0, .3);
+    }
+		.club .ctr .box1 h3,
+		.club .ctr .box2 h3,
+		.club .ctr .box3 h3,
+		.club .ctr .box4 h3,
+		.club .ctr .box5 h3,
+		.club .ctr .box6 h3,
+		.club .ctr .box7 h3,
+		.club .ctr .box8 h3,
+		.club .ctr .box9 h3 {
+			font-size: 25px;
+			color: #A62A08;
+			font-family: 'Nova Square', sans-serif;
+		}
+		.cont {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+			background: #642A17;
+        }
+		.cont .box {
+            height: 420px;
+            width: 400px;
+            background: #fff;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+            margin: 20px;
+            cursor: pointer;
+            z-index: 1;
+        }
+		.cont .box i {
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+            background: #C3291B;
+            font-size: 30px;
+            margin: 2rem 0;
+            transition: .2s;
+        }
+		.cont .box h3 {
+            font-size: 30px;
+            color: #E09434;
+            transition: .2s;
+			font-family: 'Saira Semi Condensed', sans-serif;
+        }
+		.cont .box p {
+            font-size: 13px;
+            padding: 7px 20px;
+            color: #666;
+			font-family: 'Exo 2', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+    </div>
+    <header>
+        <a href="#" class="logo">
+            <img src="image/logo.png" width="40" alt="logo">
+            <span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+
+    <div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+	<section class="intro">
+	<h1 class = "h">'EXTRACURRICULAR ACTIVITIES'</h1>
+    <p class = "desc"> Here, we share the range of activities that our students participate in beyond academics. Whether it’s joining clubs, taking part in competitions, or participating in school events, we encourage creativity to promote the school and foster a sense of community. By participating in these activities, students gain valuable skills, make new connections, and have fun while learning. Take a look at what our students have achieved and join them in creating a bright future for our school!</p>
+    </section>
+	<section class = "club">
+		<h1 class = "heading">'Our Clubs'</h1>
+		<h3 class = "title">Join our Academic Club to explore and grow your knowledge beyond the classroom. Develop valuable skills and build lasting friendships with fellow students who share your love of learning. Expand your horizons and discover new interests as you delve into different academic fields. Foster teamwork and problem-solving skills while participating in a variety of activities and projects that push your boundaries and expand your knowledge.</h3>
+		<div class="ctr">
+			<div class = "box1">
+				<img src="image/mathclub.jpg" alt="Math Club">
+				<h3>✦ Math Club ✦</h3>
+			</div>
+			<div class = "box2">
+				<img src="image/chemclub.jpg" alt="Chemistry Club">
+				<h3>✦ Chemistry Club ✦</h3>
+			</div>
+			<div class = "box3">
+				<img src="image/bioclub.jpg" alt="Biology Club">
+				<h3>✦ Biology Club ✦</h3>
+			</div>
+			<div class = "box4">
+				<img src="image/physicsclub.jpg" alt="Physics Club">
+				<h3>✦ Physics Club ✦</h3>
+			</div>
+			<div class = "box5">
+				<img src="image/bookclub.jpg" alt="Book Club">
+				<h3>✦ Book Club ✦</h3>
+			</div>
+			<div class = "box6">
+				<img src="image/langclub.jpg" alt="Language Club">
+				<h3>✦ Languages Club ✦</h3>
+			</div>
+			<div class = "box7">
+				<img src="image/debateclub.jpeg" alt="Debate Club">
+				<h3>✦ Debate Club ✦</h3>
+			</div>
+			<div class = "box8">
+				<img src="image/artclub.jpg" alt="Art Club">
+				<h3>✦ Art Club ✦</h3>
+			</div>
+			<div class = "box9">
+				<img src="image/sportsclub.jpg" alt="Sports Club">
+				<h3>✦ Sports Club ✦</h3>	
+			</div>
+		</div>
+	</section>
+	<div class="cont">
+            <div class="box">
+                <i class="fa-solid fa-trophy"></i>
+                <h3>Competitions</h3>
+                <p>Many of our students have already won competitions with proper training, showcasing their dedication to their skills and knowledge. With our help and support, you, too, can compete and win! We’ll ensure that you have access to the tools and resources you need to expand your knowledge and build your skills, making sure your chance of scoring a victory remains high.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3>School Events</h3>
+                <p>Join us in taking part in various school events and activities to make your time at school even more memorable. Whether it’s a sports tournament, debate, cultural night, or any other event, our club will ensure that you get to experience the thrill and excitement of these special occasions. Connect with your peers, create lasting memories, and showcase your skills, knowledge, and talent as you participate in these events. Take pride in your hard work and dedication as you represent our school and contribute to its growth and success.</p>
+            </div>
+
+	</div>
+    <footer>
+        <div class="footer">
+		<div class = "icons">
+			<a href = " "><i class = "fa-brands fa-facebook"></i></a>
+			<a href = " "><i class="fa-solid fa-phone"></i></a>
+			<a href = " "><i class="fa-solid fa-address-card"></i></a>
+			<a href = " "><i class = "fa-brands fa-google-plus"></i></a>
+			<a href = " "><i class = "fa-solid fa-envelope"></i></a>
+		</div>
+		<div class = "fnav">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+			</ul>
+		</div>
+		<div class = "fbot">
+			<p> Copyright © 2023, Designed by <span class = "designer"> Breshiana </span>
+		</div>
+		<div id = "p">
+			<p>‎ </p>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>
