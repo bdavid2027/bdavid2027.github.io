@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+	*{
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	}
+	.contact{
+		position:relative;
+		min-height: 100vh;
+		padding: 50px 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(211, 82, 33, 0.9)), url("image/bg.jpg") no-repeat center center fixed;
+		background-size: cover;
+		background-position: center;
+   }
+        @media (max-width: 991px) {
+    .contact {
+        padding: 50px;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container .info {
+        width: 100%;
+    }
+    .container .info .box {
+        width: 100%;
+        text-align: center;
+    }
+    .contactform {
+        width: 100%;
+        max-width: 600px;
+        margin-top: 30px;
+    }
+}
+   .contact .content{
+    max-width: 800px;
+	text-align: center;
+   }
+   .contact .content h2{
+		margin-top: 20px;
+		font-size: 46px;
+        color: #E17A23;
+		font-family: 'Nova Square', sans-serif;
+		background: #8B1D0A;
+   }
+   .contact .content p{
+    font-weight: 300;
+	color: black;
+	font-family: 'Saira Semi Condensed', sans-serif;
+	background: #fff;
+   }
+   .container{
+    width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+   }
+   .container .info{
+    width: 50%;
+	display: flex;
+	flex-direction: column;
+   }
+   .container .info .box{
+    position: relative;
+	padding: 20px 0;
+	display: flex;
+   }
+   .container .info .box .icon{
+	 min-width:50px;
+	 height: 50px;
+	 background: white;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 border-radius: 50%;
+	 font-size: 22px;
+	}
+	.container .info .box .text h3{
+	 display: flex;
+	 margin-left: 20px;
+	 font-size: 40px;
+        color: #E17A23;
+		font-family: 'Nova Square', sans-serif;
+		background: #8B1D0A;
+	 flex-direction: column;
+	 font-weight: 300;
+	}
+	.container .info .box .text p{
+	 display: flex;
+	 margin-left: 20px;
+	 font-size: 20px;
+	 color: black;
+	 flex-direction: column;
+	 font-weight: 300;
+	 font-family: 'Saira Semi Condensed', sans-serif;
+	 background: #fff;
+	}
+	.contactform{
+	 width:1000px;
+	 padding:40px;
+	 background: #fff;
+	 
+	}
+	.contactform h2{
+	 color: #333;
+	 font-family: 'Nova Square', sans-serif;
+	}
+	.contactform .inputbox {
+	 position: relative;
+	 width: 100%;
+	 margin-top: 10px;
+	}
+		.contactform .inputbox input,
+.contactform .inputbox textarea {
+    width: 100%;
+    padding: 5px 0;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+.contactform .inputbox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+.contactform .inputbox input:focus ~ span,
+.contactform .inputbox input:valid ~ span,
+.contactform .inputbox textarea:focus ~ span,
+.contactform .inputbox textarea:valid ~ span {
+    color: red;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+.contactform .inputbox input[type="submit"] {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+}
+ @media (max-width: 991px){
+	  .contact{
+	     padding: 50px;
+	  }
+	  .container{
+	    flex-direction: column; 
+	  }
+	  .container .contactinfo{
+	   margin-bottom: 40px;
+	  }
+	  .container .contactinfo, .contactform {
+	   width: 100%;
+	  }
+}
+@media (max-width: 991px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center items on smaller screens */
+  }
+
+  .container .info {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .container .info .box {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .container .info .box .icon {
+    min-width: 70px;
+    height: 70px;
+  }
+
+  .container .info .box .text h3 {
+    font-size: 40px;
+  }
+
+  .container .info .box .text p {
+    font-size: 20px;
+  }
+
+  .contactform {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+  }
+
+  .contactform h2 {
+    font-size: 46px;
+  }
+}
+
+        a {
+            text-transform: capitalize;
+            text-decoration: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #370D0A;
+            margin: 0;
+        }
+		header {
+            width: 96%;
+            background: #fff;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            z-index: 4;
+        }
+        .navbar {
+            max-width: 100%;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar li {
+            margin-left: 16px;
+            margin-right: 10px;
+        }
+        .navbar a {
+            color: #333;
+        }
+        .navbar ul li a {
+            font-size: 20px;
+            transition: .2s;
+            color: #642A17;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .navbar ul li a:hover {
+            color: #DB6E2D;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            margin-right: 10px;
+        }
+        header .logo img,
+        header .logo span {
+            vertical-align: middle;
+        }
+        header .fas-bars {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        header .logo span {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: 'Nova Square', sans-serif;
+            color: #642A17;
+        }
+        .menu-block {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 152, 105, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .menu-block:target {
+            display: flex;
+        }
+        .menu-block ul {
+            flex-flow: column;
+            text-align: center;
+        }
+        .menu-block ul li {
+            margin: 10px 0;
+        }
+        .menu-block a {
+            font-size: 15px;
+            color: #642A17;
+            text-decoration: none;
+            transition: .2s;
+            font-family: 'Exo 2', sans-serif;
+        }
+        .menu-block a:hover {
+            color: #DE413E;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        header .fas-bars {
+            color: #642A17;
+        }
+        header .fas-bars:hover {
+            color: #DE413E;
+            transition: .2s;
+        }
+        @media (max-width: 768px) {
+            header .fas-bars {
+                display: block;
+            }
+            .navbar {
+                display: none;
+            }
+            .menu-block a {
+                font-size: 3rem;
+            }
+            .menu-block .close-btn {
+                display: block;
+            }
+            .menu-block ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-block ul li {
+                margin-left: 0;
+            }
+            .menu-block ul li a {
+                font-size: 20px;
+            }
+            header .fas-bars.active {
+                display: none;
+            }
+        }
+		footer {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer {
+            width: 70%;
+            padding: 70px 30px 20px;
+            margin: auto;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .icons a {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .icons a i {
+            font-size: 20px;
+            color: #000;
+            opacity: 0.9;
+        }
+        .icons a:hover {
+            background-color: #111;
+            transition: .5s;
+        }
+        .icons a:hover i {
+            color: #fff;
+            transition: .5s;
+        }
+        .fnav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .fnav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .fnav ul li {
+            margin: 0 10px;
+        }
+        .fnav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: .7;
+            transition: .5s;
+        }
+        .fnav ul li a:hover {
+            opacity: 1;
+        }
+        .fbot {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 4;
+        }
+        .fbot p {
+            color: #fff;
+            margin: 0;
+        }
+        .designer {
+            opacity: .7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+        #p {
+            margin-top: 10px;
+        }
+		.box {
+			position: relative;
+			padding: 20px 0;
+			display: flex;
+			background-color: #fff;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			margin-right: 20px;
+		}
+        @media (max-width: 700px) {
+            .fnav ul {
+                flex-direction: column;
+            }
+
+            .fnav ul li {
+                width: 100%;
+                text-align: center;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="image/logo.png" width="40" alt="logo">
+            <span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+	<div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+	  <section class="contact">
+     <div class="content">
+	    <h2>Contact Us!</h2>
+		<p><b>Need to know more about The University Of Breshiana? Feel free to contact us by using any of these platforms below!!</b></p>
+	 </div>
+     <div class="container">
+	   <div class="info">
+	     <div class="box">
+		   <div class="icon"><i class="fa-solid fa-address-card"></i></div>
+		   <div class="text">
+		     <h3>Address</h3>
+			 <p><b>9961 Cornelia Street, Narnia</b></p>
+		 </div>
+	   </div>
+	   <div class="box">
+		   <div class="icon"><i class="fa-solid fa-phone"></i></div>
+		   <div class="text">
+		     <h3>Number</h3>
+			 <p><b>Smart - +63 912 875 2348<br>Globe - +63 9<br>Dito - +63 991 827 2903</b></p>
+		 </div>
+	   </div>
+	   <div class="box">
+		   <div class="icon"><i class = "fa-solid fa-envelope"></i></div>
+		   <div class="text">
+		     <h3>Email</h3>
+			 <p><b>BreshEan@gmail.com</b></p>
+		 </div>
+	   </div>
+	   <div class="box">
+		   <div class="icon"><i class = "fa-brands fa-facebook"></i></div>
+		   <div class="text">
+		     <h3>Socials</h3>
+			 <p><b>Facebook - Breshiana<br>Instagram - BreshianaSlays<br>X - BreshieTEA</b></p>
+		 </div>
+	   </div>
+	   <div class="box">
+		   <div class="icon"><i class = "fa-brands fa-google-plus"></i></div>
+		   <div class="text">
+		     <h3>Website</h3>
+			 <p><b>Breshiana.com </b></p>
+		 </div>
+	   </div>
+      </div>
+	 
+
+	<div class="contactform">
+	    <form>
+		    <h2>Send Us A Message!</h2>
+			<div class="inputbox">
+			   <input type="text" name=" " required="required">
+			   <span> Full Name</span>
+			</div>
+			<div class="inputbox">
+			   <input type="text" name=" " required="required">
+			   <span>Email</span>
+			</div>
+			<div class="inputbox">
+			   <textarea required="required"></textarea>
+			   <span>Your Message....</span>
+			</div>
+			<div class="inputbox">
+			   <input type="submit" name=" " value="Send">
+		    </div>
+		</form>
+	</div>
+	</div>
+</section>
+    <footer>
+        <div class="footer">
+		<div class = "icons">
+			<a href = " "><i class = "fa-brands fa-facebook"></i></a>
+			<a href = " "><i class="fa-solid fa-phone"></i></a>
+			<a href = " "><i class="fa-solid fa-address-card"></i></a>
+			<a href = " "><i class = "fa-brands fa-google-plus"></i></a>
+			<a href = " "><i class = "fa-solid fa-envelope"></i></a>
+		</div>
+		<div class = "fnav">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+			</ul>
+		</div>
+		<div class = "fbot">
+			<p> Copyright © 2023, Designed by <span class = "designer"> Breshiana </span>
+		</div>
+		<div id = "p">
+			<p>‎ </p>
+		</div>
+	</div>
+	</footer>
+</body>
+</html>
