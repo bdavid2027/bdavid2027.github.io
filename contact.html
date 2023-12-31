@@ -1,22 +1,22 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-<title>Contact Page</title>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
-<style>
-  *{
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Nova+Square&family=Play&family=Saira+Semi+Condensed:wght@600&display=swap" rel="stylesheet">
+    <style>
+	*{
     margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	}
-   .contact{
+	.contact{
 		position:relative;
 		min-height: 100vh;
 		padding: 50px 100px;
@@ -28,7 +28,7 @@
 		background-size: cover;
 		background-position: center;
    }
-   @media (max-width: 991px) {
+        @media (max-width: 991px) {
     .contact {
         padding: 50px;
     }
@@ -63,7 +63,7 @@
    .contact .content p{
     font-weight: 300;
 	color: black;
-	font-family: 'Chakra Petch';
+	font-family: 'Saira Semi Condensed', sans-serif;
 	background: #fff;
    }
    .container{
@@ -110,7 +110,7 @@
 	 color: black;
 	 flex-direction: column;
 	 font-weight: 300;
-	 font-family: 'Chakra Petch';
+	 font-family: 'Saira Semi Condensed', sans-serif;
 	 background: #fff;
 	}
 	.contactform{
@@ -128,17 +128,16 @@
 	 width: 100%;
 	 margin-top: 10px;
 	}
-	.contactform .inputbox input,
+		.contactform .inputbox input,
 .contactform .inputbox textarea {
     width: 100%;
-    padding: 5px 0; /* Fixed the padding property */
+    padding: 5px 0;
     margin: 10px 0;
     border: none;
     border-bottom: 2px solid #333;
     outline: none;
     resize: none;
 }
-
 .contactform .inputbox span {
     position: absolute;
     left: 0;
@@ -148,7 +147,6 @@
     transition: 0.5s;
     color: #666;
 }
-
 .contactform .inputbox input:focus ~ span,
 .contactform .inputbox input:valid ~ span,
 .contactform .inputbox textarea:focus ~ span,
@@ -158,15 +156,68 @@
     transform: translateY(-20px);
 }
 
-.contactform .inputbox input[type="submit"] { /* Fixed the attribute assignment */
+.contactform .inputbox input[type="submit"] {
     color: #fff;
     border: none;
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
 }
+ @media (max-width: 991px){
+	  .contact{
+	     padding: 50px;
+	  }
+	  .container{
+	    flex-direction: column; 
+	  }
+	  .container .contactinfo{
+	   margin-bottom: 40px;
+	  }
+	  .container .contactinfo, .contactform {
+	   width: 100%;
+	  }
+}
+@media (max-width: 991px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center items on smaller screens */
+  }
 
-   a {
+  .container .info {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .container .info .box {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .container .info .box .icon {
+    min-width: 70px;
+    height: 70px;
+  }
+
+  .container .info .box .text h3 {
+    font-size: 40px;
+  }
+
+  .container .info .box .text p {
+    font-size: 20px;
+  }
+
+  .contactform {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+  }
+
+  .contactform h2 {
+    font-size: 46px;
+  }
+}
+
+        a {
             text-transform: capitalize;
             text-decoration: none;
             outline: none;
@@ -174,7 +225,11 @@
             padding: 0;
             box-sizing: border-box;
         }
-	header {
+        body {
+            background: #370D0A;
+            margin: 0;
+        }
+		header {
             width: 96%;
             background: #fff;
             position: fixed;
@@ -287,19 +342,15 @@
             header .fas-bars {
                 display: block;
             }
-
             .navbar {
                 display: none;
             }
-
             .menu-block a {
                 font-size: 3rem;
             }
-
             .menu-block .close-btn {
                 display: block;
             }
-
             .menu-block ul {
                 list-style: none;
                 padding: 0;
@@ -310,15 +361,13 @@
             .menu-block ul li {
                 margin-left: 0;
             }
-
             .menu-block ul li a {
                 font-size: 20px;
             }
-
             header .fas-bars.active {
                 display: none;
             }
-			}
+        }
 		footer {
             padding: 0;
             margin: 0;
@@ -333,10 +382,10 @@
             margin: auto;
         }
         .icons {
-			display: flex;
-			justify-content: center;
-			margin-bottom: 10px;
-		}
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
         .icons a {
             text-decoration: none;
             padding: 10px;
@@ -357,41 +406,40 @@
             color: #fff;
             transition: .5s;
         }
-		.fnav {
-			margin: 20px 0;
-			text-align: center;
-		}
-		.fnav ul {
-			display: flex;
-			justify-content: center;
-			list-style-type: none;
-			padding: 0;
-		}
-		.fnav ul li {
-			margin: 0 10px;
-		}
-		.fnav ul li a {
-			color: #fff;
-			text-decoration: none;
-			font-size: 13px;
-			opacity: .7;
-			transition: .5s;
-		}
-
-		.fnav ul li a:hover {
-			opacity: 1;
-		}
-		.fbot {
-			background: #000;
-			padding: 20px;
-			text-align: center;
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			margin: 0;
-			z-index: 4;
-		}
+        .fnav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .fnav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .fnav ul li {
+            margin: 0 10px;
+        }
+        .fnav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: .7;
+            transition: .5s;
+        }
+        .fnav ul li a:hover {
+            opacity: 1;
+        }
+        .fbot {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            z-index: 4;
+        }
         .fbot p {
             color: #fff;
             margin: 0;
@@ -403,9 +451,9 @@
             font-weight: 400;
             margin: 0px 5px;
         }
-		#p {
-		margin-top:10px;
-		}
+        #p {
+            margin-top: 10px;
+        }
 		.box {
 			position: relative;
 			padding: 20px 0;
@@ -425,25 +473,37 @@
                 text-align: center;
                 margin: 10px;
             }
-		}
-    @media (max-width: 991px){
-	  .contact{
-	     padding: 50px;
-	  }
-	  .container{
-	    flex-direction: column; 
-	  }
-	  .container .contactinfo{
-	   margin-bottom: 40px;
-	  }
-	  .container .contactinfo, .contactform {
-	   width: 100%;
-	  }
-}
-</style>
+        }
+    </style>
 </head>
+
 <body>
-  <section class="contact">
+    <header>
+        <a href="#" class="logo">
+            <img src="image/logo.png" width="40" alt="logo">
+            <span>University of Breshiana</span></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+            </ul>
+        </nav>
+        <a href="#menu" class="fas fa-bars fas-bars"></a>
+    </header>
+	<div class="menu-block" id="menu">
+        <a href="#" class="close-btn">&#10005;</a>
+        <ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="extra.html">extra</a></li>
+				<li><a href="acad.html">academics</a></li>
+        </ul>
+    </div>
+	  <section class="contact">
      <div class="content">
 	    <h2>Contact Us!</h2>
 		<p><b>Need to know more about The University Of Breshiana? Feel free to contact us by using any of these platforms below!!</b></p>
@@ -510,40 +570,14 @@
 	</div>
 	</div>
 </section>
-<header>
-        <a href="#" class="logo">
-			<img src = "image/logo.png" width = "40" alt = "logo">
-			<span>University of Breshiana</span></a>
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">home</a></li>
-				<li><a href="contact.html">contact</a></li>
-				<li><a href="about.html">about</a></li>
-				<li><a href="extra.html">extra</a></li>
-				<li><a href="acad.html">academics</a></li>
-            </ul>
-        </nav>
-        <a href="#menu" class="fas fa-bars fas-bars"></a>
-    </header>
-
-    <div class="menu-block" id="menu">
-        <a href="#" class="close-btn">&#10005;</a>
-        <ul>
-            <li><a href="index.html">home</a></li>
-				<li><a href="contact.html">contact</a></li>
-				<li><a href="about.html">about</a></li>
-				<li><a href="extra.html">extra</a></li>
-				<li><a href="acad.html">academics</a></li>
-        </ul>
-    </div>
-	<footer>
-	<div class = "footer">
+    <footer>
+        <div class="footer">
 		<div class = "icons">
-			<a href = "_"><i class = "fa-brands fa-facebook"></i></a>
-			<a href = "_"><i class="fa-solid fa-phone"></i></a>
-			<a href = "_"><i class="fa-solid fa-address-card"></i></a>
-			<a href = "_"><i class = "fa-brands fa-google-plus"></i></a>
-			<a href = "_"><i class = "fa-solid fa-envelope"></i></a>
+			<a href = " "><i class = "fa-brands fa-facebook"></i></a>
+			<a href = " "><i class="fa-solid fa-phone"></i></a>
+			<a href = " "><i class="fa-solid fa-address-card"></i></a>
+			<a href = " "><i class = "fa-brands fa-google-plus"></i></a>
+			<a href = " "><i class = "fa-solid fa-envelope"></i></a>
 		</div>
 		<div class = "fnav">
 			<ul>
@@ -562,6 +596,5 @@
 		</div>
 	</div>
 	</footer>
-
 </body>
 </html>
